@@ -102,7 +102,7 @@ export const selectors = () => (dispatch, getState) => {
 
 const Balance = (value, label = '', decimals = 0) => ({
   value: BN(value),
-  label: label.toUpperCase(),
+  label: label,
   decimals: +decimals,
 });
 

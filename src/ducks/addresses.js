@@ -58,9 +58,9 @@ const MAIN = {
       ['RHOC', '0x394e524b47A3AB3D3327f7fF6629dC378c1494a3'],
       ['SALT', '0xC0C59cDe851bfcbdddD3377EC10ea54A18Efb937'],
       ['SNT', '0x1aEC8F11A7E78dC22477e91Ed924Fab46e3A88Fd'],
-      ['SNX', '0x5d8888a212d033cff5f2e0ac24ad91a5495bad62'],  
+      ['SNX', '0x5d8888a212d033cff5f2e0ac24ad91a5495bad62'],
       ['SPANK', '0x4e395304655F0796bc3bc63709DB72173b9DdF98'],
-      ['SUSD', '0xa1ecdcca26150cf69090280ee2ee32347c238c7b'], 
+      ['SUSD', '0xa1ecdcca26150cf69090280ee2ee32347c238c7b'],
       ['TKN', '0xb6cFBf322db47D39331E306005DC7E5e6549942B'],
       ['TUSD', '0x4F30E682D0541eAC91748bd38A648d759261b8f3'],
       ['USDC', '0x97deC872013f6B5fB443861090ad931542878126'],
@@ -142,9 +142,9 @@ const MAIN = {
       ['RHOC', '0x168296bb09e24A88805CB9c33356536B980D3fC5'],
       ['SALT', '0x4156D3342D5c385a87D264F90653733592000581'],
       ['SNT', '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E'],
-      ['SNX', '0x3772f9716Cf6D7a09edE3587738AA2af5577483a'],  
+      ['SNX', '0x3772f9716Cf6D7a09edE3587738AA2af5577483a'],
       ['SPANK', '0x42d6622deCe394b54999Fbd73D108123806f6a18'],
-      ['SUSD', '0x0cbe2df57ca9191b64a7af3baa3f946fa7df2f25'], 
+      ['SUSD', '0x0cbe2df57ca9191b64a7af3baa3f946fa7df2f25'],
       ['TKN', '0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a'],
       ['TUSD', '0x8dd5fbCe2F6a956C3022bA3663759011Dd51e73E'],
       ['USDC', '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'],
@@ -157,6 +157,26 @@ const MAIN = {
     ],
   },
 };
+
+// for ganache, change factory address, token address and exchange address to your
+// deployed contracts
+const GANACHE = {
+  factoryAddress: '0x2a81C8Ec19F4293A87Fc938a2dA8ce50A2aD4839',
+  exchangeAddresses: {
+    addresses: [
+      ['TTKN',], '0xbc146d66a0A7d63ecA7cF67905b8A90B57895B48'
+    ],
+    fromToken: {
+      '0xc7dc4e9dB45606c05250b7278985B2bbeb224A95': '0xbc146d66a0A7d63ecA7cF67905b8A90B57895B48',
+    },
+  },
+  tokenAddresses: {
+    addresses: [
+      ['TTKN', '0xc7dc4e9dB45606c05250b7278985B2bbeb224A95'],
+    ],
+  },
+};
+
 
 const SET_ADDRESSES = 'app/addresses/setAddresses';
 const ADD_EXCHANGE = 'app/addresses/addExchange';
@@ -192,6 +212,13 @@ export const setAddresses = networkId => {
       return {
         type: SET_ADDRESSES,
         payload: MAIN,
+      };
+    // Ganache
+    case 5777:
+    case '5777':
+      return {
+        type: SET_ADDRESSES,
+        payload: GANACHE,
       };
     // Rinkeby
     case 4:
